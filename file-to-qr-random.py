@@ -20,7 +20,9 @@ def ToQrcode(base64_data, file_name, max_size=2500, min_range=0.8):
     rand = random.Random()
     rand.seed(time.time_ns())
     data = str(base64_data)
-    data = "base64:\'" + data[2:-1]+"\'Powered_by_MinecraftFuns"
+    data = "base64:\"" + data[2:-1]+"\";file_name:\"" + \
+        file_name + "\";generate_time:\"" + \
+        str(time.time_ns()) + "\";powered_by:\"MinecraftFuns\""
     data_len = len(data)
     basic_file_name = file_name
     end = 0
