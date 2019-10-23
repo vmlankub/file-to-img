@@ -20,7 +20,8 @@ def ToQrcode(base64_data, file_name, max_size=2500, min_range=0.8):
     rand = random.Random()
     rand.seed(time.time_ns())
     data = str(base64_data)
-    data_len = len(data) - 1
+    data = "base64:\'" + data[2:-1]+"\'Powered_by_MinecraftFuns"
+    data_len = len(data)
     basic_file_name = file_name
     end = 0
     start = 0
@@ -34,7 +35,7 @@ def ToQrcode(base64_data, file_name, max_size=2500, min_range=0.8):
         file_name = basic_file_name + "_" + str(cnt) + ".jpg"
         qr.save(file_name)
         cnt += 1
-        start = end + 1
+        start = end
 
 
 if __name__ == "__main__":
